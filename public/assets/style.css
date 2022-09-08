@@ -13,7 +13,7 @@ a:hover {
 
 /* style du header */
 .headerColors {
-    background-color: yellow;
+    background-color: #4CAF50;
 }
 
 .headerColors a {
@@ -23,14 +23,14 @@ a:hover {
 
 /*style du bloc principal*/
 .titleAccueil {
-    color: yellow;
+    color: #4CAF50;
     text-align: center;
 }
 
 
 /*style du footer*/
 .footer {
-    background-color: yellow;
+    background-color: #4CAF50;
 }
 
 .footer a {
@@ -44,12 +44,21 @@ a:hover {
 
 /* style du blog */
 .titleBlog {
-    color: yellow;
+    color: #4CAF50;
     text-align: center;
 }
 
 /* style de la page séances */
 .titleSeances {
-    color: yellow;
+    color: #4CAF50;
     text-align: center;
+}
+
+/* style des titres de la page accueil*/
+.titleBlocsAccueil {
+    color: green !important;
+}
+
+.blocsTextAccueil {
+    text-align: justify;
 }

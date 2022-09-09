@@ -29,6 +29,8 @@ class CommentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $comment->setUser($user);
             $commentRepository->add($comment, true);
 
             return $this->redirectToRoute('app_comment_index', [], Response::HTTP_SEE_OTHER);
@@ -36,7 +38,7 @@ class CommentController extends AbstractController
 
         return $this->renderForm('comment/new.html.twig', [
             'comment' => $comment,
-            'form' => $form,
+            'form' => $form
         ]);
     }
 

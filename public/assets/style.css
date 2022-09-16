@@ -62,3 +62,8 @@ a:hover {
 .blocsTextAccueil {
     text-align: justify;
 }
+
+.images-posts {
+    width: 200px;
+    height: 200px;
+}

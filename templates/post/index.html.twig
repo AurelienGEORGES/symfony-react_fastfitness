@@ -25,6 +25,7 @@
 					<td>{{ post.content }}</td>
 					<td>{{ post.title }}</td>
 					<td>{{ post.image }}</td>
+					<td><img src="{{'/uploads/images/' ~ post.image}}" alt="mon image" class="images-posts"/></td>
 					<td>
 						<a href="{{ path('app_post_show', {'id': post.id}) }}">show</a>
 						<a href="{{ path('app_post_edit', {'id': post.id}) }}">edit</a>

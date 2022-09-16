@@ -33,7 +33,7 @@ class CommentController extends AbstractController
             $comment->setUser($user);
             $commentRepository->add($comment, true);
 
-            return $this->redirectToRoute('app_comment_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_post_show', ['id' => $comment->getPost()->getId()], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('comment/new.html.twig', [

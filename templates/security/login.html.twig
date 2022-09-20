@@ -1,0 +1,54 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Se connecter
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="titleAccueil my-5">Se connecter</h1>
+
+	<section class="container col-lg">
+
+		<form method="post">
+
+			{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
+
+			{% if app.user %}
+				<div class="mb-3">
+					Vous êtes connecté
+					{{ app.user.userIdentifier }},
+					<a href="{{ path('app_logout') }}">Se déconnecter</a>
+				</div>
+			{% endif %}
+
+			<div class="flex justify-content-center mx-3 fs-3 text-white">
+				<label for="inputEmail" class="text-white my-3">Email :
+				</label>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+
+				<label for="inputPassword" class="text-white my-3">Mot de passe :
+				</label>
+				<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				<div class="checkbox text-white fs-4 my-4">
+					<label>
+						<input type="checkbox" name="_remember_me" id="login_form_rememberMe">Se souvenir de moi
+					</label>
+				</div>
+
+
+				<div class="d-flex justify-content-center my-4">
+					<button class="btn btn-success mb-2 px-4 py-2 fs-1" type="submit">
+						Connexion
+					</button>
+				</div>
+			</div>
+            
+		</form>
+
+	</section>
+{% endblock %}

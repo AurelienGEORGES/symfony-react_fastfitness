@@ -1,0 +1,55 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Séances Fast-Fitness
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="titleSeances mt-5">Vous voulez booster votre carrière sportive ou de mannequinat?<br/>Prennez rendez vous avec notre coach et/ou notre diététicien</h1>
+
+	<section class="d-flex align-items-center flex-column my-4">
+
+		<div class="d-flex my-2">
+			<p class="fs-3 text-white">Réservez une séance avec Julien,<br />notre diététicien toujours au top</p>
+		</div>
+
+		<div class="fs-3 text-white d-flex">
+			{{ form_start(reservationDieteticien) }}
+
+			{{ form_row(reservationDieteticien.dateDebut, {
+            label: 'Date de début de la réservation : '
+        }) }}
+
+			<div class="d-flex justify-content-center my-4">
+				<button type="submit" class="btn btn-success mb-2 px-2 py-2 fs-3">Valider</button>
+			</div>
+			{{ form_end(reservationDieteticien) }}
+
+	</div>
+
+
+</section>
+
+<section class="d-flex align-items-center flex-column my-4">
+
+	<div class="d-flex my-2">
+		<p class="fs-3 text-white">Réservez une séance avec Marc,<br />coach professionnel pour athlètes</p>
+	</div>
+
+	<div class="fs-3 text-white d-flex">
+		{{ form_start(reservationCoach) }}
+
+
+		{{ form_row(reservationCoach.dateDebut, {
+            label: 'Date de début de la réservation : '
+        }) }}
+
+		
+		<div class="d-flex justify-content-center my-4">
+			<button type="submit" class="btn btn-success mb-2 px-2 py-2 fs-3">Valider</button>
+		</div>
+		{{ form_end(reservationCoach) }}
+	</div>
+
+
+</section>{% endblock %}

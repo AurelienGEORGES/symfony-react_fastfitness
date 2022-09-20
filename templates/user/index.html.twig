@@ -1,0 +1,12 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block content %}
+    
+    <h1 class="titleBlog my-5 mx-2">Salut {{ user.username }}! Bienvenue sur ta page profil</h1>
+    <p class="text-white ms-3 fs-4">voici ton email actuel : {{ user.email }}</p>
+    <p class="text-white ms-3 fs-4">voici tes réservations diététicien : {{ user.reservationDieteticiens.dateDebut }}</p>
+    <p class="text-white ms-3 fs-4">voici tes réservation coach : {{ user.reservationCoaches.dateDebut }}</p>
+
+{% endblock %}

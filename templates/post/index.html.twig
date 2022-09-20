@@ -1,0 +1,48 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Post index
+{% endblock %}
+
+{% block content %}
+
+	{% if is_granted('ROLE_ADMIN') %}
+
+		<h1 class="titleBlog my-5 mx-2">Bienvenue Julien vous pouvez écrire un article ici</h1>
+		<div class="d-flex justify-content-center">
+		<a href="{{ path('app_post_new') }}" class="btn btn-success">Créer un article</a>
+		</div>
+	{% endif %}
+
+	{% if is_granted('ROLE_USER') %}
+
+		<h1 class="titleBlog my-5 mx-2">Vous voulez des conseils sur la nutrition sportive?<br/>c'est ici que ça se passe!</h1>
+		<div class="d-flex flex-wrap justify-content-center">
+
+			{% for post in posts %}
+			
+				<article class="my-3 queries-articles">
+					<div class="card mx-3">
+						<img src="{{'/uploads/images/' ~ post.image}}" class="card-img-top image-article" alt="mon image">
+						
+						<div class="card-body">
+							<h5 class="card-title">{{ post.title }}</h5>
+							<p class="card-text">{{ post.content }}</p>
+							<p>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+
+							<div class="d-flex justify-content-center">
+							<a href="{{ path('app_post_show', {'id': post.id}) }}" class="btn btn-success">Voir l'article en entier</a>
+							</div>
+
+						</div>
+						
+					</div>
+
+				</article>
+			
+			{% endfor %}
+
+		</div>
+
+	{% endif %}
+
+{% endblock %}

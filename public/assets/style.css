@@ -1,0 +1,190 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    background-color: black;
+}
+
+a:hover {
+    color: #666 !important;
+}
+
+/* style du header */
+.headerColors {
+    background-color: #4CAF50;
+}
+
+.headerColors a {
+    color: black;
+    font-weight: 900;
+}
+
+/*style du bloc principal*/
+.titleAccueil {
+    color: #4CAF50;
+    text-align: center;
+}
+
+
+/*style du footer*/
+.footer {
+    background-color: #4CAF50;
+}
+
+.footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+/* style du blog */
+.titleBlog {
+    color: #4CAF50;
+    text-align: center;
+
+}
+
+/* style de la page séances */
+.titleSeances {
+    color: #4CAF50;
+    text-align: center;
+}
+
+/* style des titres de la page accueil*/
+.titleBlocsAccueil {
+    color: green !important;
+}
+
+.blocsTextAccueil {
+    text-align: justify;
+}
+
+.images-posts {
+    width: 200px;
+    height: 200px;
+}
+
+/*FORMULAIRE REGISTER*/
+#registration_form_username {
+    border-radius: 15px;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: solid black 5px;
+}
+
+#registration_form_email {
+    border-radius: 15px;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: solid black 5px;
+}
+
+#registration_form_plainPassword {
+    border-radius: 15px;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: solid black 5px;
+}
+
+#registration_form_agreeTerms {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+/*FIN FORMULAIRE REGISTER*/
+
+/*DEBUT STYLE FORMULAIRE LOGIN*/
+#inputEmail {
+    border-radius: 15px;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: solid black 5px;
+}
+
+#inputPassword {
+    border-radius: 15px;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: solid black 5px;
+}
+
+#login_form_rememberMe {
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px 0px 5px;
+}
+/*FIN STYLE FORMULAIRE LOGIN*/
+
+/*DEBUT STYLE FORMULAIRE NOUVEL ARTICLE*/
+.custom-form-nouvel-article {
+    display: flex;
+    justify-content: center;
+}
+
+#post_createdAt {
+    width: 50%;
+    margin: 10px 0px;
+}
+
+.custom-form-nouvel-article textarea {
+    width: 90%; 
+    margin: 10px 0px;   
+}
+
+#post_title {
+    width: 90%;
+    margin: 10px 0px;
+}
+
+/*FIN STYLE FORMULAIRE NOUVEL ARTICLE*/
+
+/*DEBUT STYLE FORMULAIRE NOUVEAU COMMENTAIRE*/
+.form-nouveau-commentaire {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#comment_content {
+    display: flex;
+    width: 90%;
+    height: 100px;
+    background-color: white;
+
+}
+
+/*FIN STYLE FORMULAIRE NOUVEAU COMMENTIARE*/
+
+/*DEBUT STYLE DES IMAGES DES ARTICLES*/
+@media (min-width:600px)
+{
+  .queries-articles { 
+    height: auto; 
+    width: 30%;
+    }
+}
+
+.image-article {
+    float: left;
+}
+
+@media (min-width:600px)
+{
+    .queries-articles-show-post { 
+    height: auto; 
+    width: 60%;
+    }
+}
+
+/*FIN STYLE DES IMAGES DES ARTICLES*/

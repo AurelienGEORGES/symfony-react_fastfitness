@@ -1,0 +1,13 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Modification d'un commentaire{% endblock %}
+
+{% block content %}
+    <h1 class="titleBlog my-5 mx-2">Salut Julien tu peux modifier et supprimer un commentaire sur cette page</h1>
+    <div class="fs-2 text-white my-4 ms-3">
+    {{ include('comment/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="d-flex justify-content-center">
+    <a href="{{ path('app_post_index') }}" class="btn btn-success mb-4">Tous les articles</a>
+    </div>
+
+{% endblock %}

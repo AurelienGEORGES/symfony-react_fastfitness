@@ -39,6 +39,20 @@ class CommentRepository extends ServiceEntityRepository
         }
     }
 
+   /**
+     * @return User[] Returns an array of ReservationCoach objects
+     */
+    public function findByUserField($id): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.user = :id')
+            ->setParameter('id', $id)
+            ->orderBy('u.id', 'ASC')
+            //->setMaxResults(40)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 //    /**
 //     * @return Comment[] Returns an array of Comment objects
 //     */

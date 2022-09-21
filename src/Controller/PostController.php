@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Form\PostType;
+use DateTimeImmutable;
 use App\Repository\PostRepository;
 use App\Repository\CommentRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +30,7 @@ class PostController extends AbstractController
     public function new(Request $request, PostRepository $postRepository, SluggerInterface $slugger): Response
     {
         $post = new Post();
-
+        $date = new DateTimeImmutable();
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
@@ -63,7 +64,7 @@ class PostController extends AbstractController
             }
 
             //fin de l'import d'images
-
+            $post->setCreatedAt($date);
             $postRepository->add($post, true);
 
             return $this->redirectToRoute('app_post_index', [], Response::HTTP_SEE_OTHER);
@@ -78,9 +79,10 @@ class PostController extends AbstractController
     #[Route('/{id}', name: 'app_post_show', methods: ['GET'])]
     public function show(Post $post, CommentRepository $commentRepository): Response
     {
+
         return $this->render('post/show.html.twig', [
             'post' => $post,
-            'comments' => $commentRepository->findBy(['post' => $post])
+            'comments' => $commentRepository->findBy(['post' => $post]),
         ]);
     }
 

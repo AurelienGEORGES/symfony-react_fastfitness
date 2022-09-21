@@ -28,14 +28,14 @@ class CommentController extends AbstractController
 
     #[Route('/new/{id}', name: 'app_comment_new', methods: ['GET', 'POST'])]
 
-    public function new(Request $request, CommentRepository $commentRepository , PostRepository $postrepo): Response
+    public function new(Request $request, CommentRepository $commentRepository , PostRepository $postRepository): Response
     {
         $comment = new Comment();
         $date = new DateTimeImmutable();
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
-        $idpost = $request->get('id');
-        $postactuel = $postrepo->findOneBy(["id" => $idpost]);
+        $post_id = $request->get('id');
+        $post_actuel = $postRepository->findOneBy(["id" => $post_id]);
         
         if ($form->isSubmitted() && $form->isValid()) {
             
@@ -43,7 +43,7 @@ class CommentController extends AbstractController
             $user = $this->getUser();
             $comment->setUser($user);
             $comment->setCreatedAt($date);
-            $comment->setPost($postactuel);
+            $comment->setPost($post_actuel);
             
             $commentRepository->add($comment, true);
 

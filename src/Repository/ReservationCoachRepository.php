@@ -39,6 +39,21 @@ class ReservationCoachRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return ReservationCoach[] Returns an array of ReservationCoach objects
+     */
+    public function findByUserField($id): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.user = :id')
+            ->setParameter('id', $id)
+            ->orderBy('u.id', 'ASC')
+            //->setMaxResults(40)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return ReservationCoach[] Returns an array of ReservationCoach objects
 //     */

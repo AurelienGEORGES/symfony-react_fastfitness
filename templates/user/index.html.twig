@@ -6,7 +6,10 @@
     
     <h1 class="titleBlog my-5 mx-2">Salut {{ user.username }}! Bienvenue sur ta page profil</h1>
     <p class="text-white ms-3 fs-4">voici ton email actuel : {{ user.email }}</p>
-    <p class="text-white ms-3 fs-4">voici tes réservations diététicien : {{ user.reservationDieteticiens.dateDebut }}</p>
-    <p class="text-white ms-3 fs-4">voici tes réservation coach : {{ user.reservationCoaches.dateDebut }}</p>
-
+    {% for reservationsDieteticien in reservationsDieteticiens %}
+    <p class="text-white ms-3 fs-4">voici tes réservations diététicien : {{ reservationsDieteticien.dateDebut ? reservationsDieteticien.dateDebut|date('Y-m-d H:i:s') : '' }}</p>
+    {% endfor %}
+    {% for reservationsCoach in reservationsCoachs %}
+    <p class="text-white ms-3 fs-4">voici tes réservation coach : {{  reservationsCoach.dateDebut ? reservationsCoach.dateDebut|date('Y-m-d H:i:s') : '' }}</p>
+    {% endfor %}
 {% endblock %}

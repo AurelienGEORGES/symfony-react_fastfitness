@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,16 +18,6 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('createdAt', DateTimeType::class, [
-            'widget' => 'single_text',
-            'label' => 'date de création',
-            'attr' => [
-                'class' => 'form-control shadow'
-            ],
-            'label_attr' => [
-                'class' => 'visually-hidden'
-            ]
-        ])
 
             ->add('content', TextareaType::class, [
                 'label' => 'contenu de l"article : ',

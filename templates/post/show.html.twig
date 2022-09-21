@@ -42,9 +42,11 @@
 
 			<div class="card">
 				<div class="card-body">
-					{#<p class="card-text">{{ comment.user_id }}</p>#}
+					{#<p class="card-text">{{ comment.username }}</p>#}
 					<p class="card-text">{{ comment.content }}</p>
-					<p>{{ post.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+					<p class="card-text">par : {{ comment.user.username }}</p>
+					<p class="card-text"></p>
+					<p>date : {{ post.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</p>
 					{% if is_granted('ROLE_ADMIN') %}
 					<div class="d-flex justify-content-center flex-row">
 					<a href="{{ path('app_comment_edit', {'id': comment.id}) }}" class="btn btn-success me-3">Modifier</a>

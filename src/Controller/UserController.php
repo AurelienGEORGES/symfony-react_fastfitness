@@ -2,34 +2,32 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
-
-use App\Entity\ReservationCoach;
-use App\Entity\ReservationDieteticien;
+use App\Repository\ReservationCoachRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ReservationDieteticienRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
 {
-    #[Route('/user/{id}', name: 'app_user', methods: ['GET'])]
-    public function index( User $user, ReservationCoach $reservationCoach, ReservationDieteticien $reservationDieteticien, Request $request,): Response
+    #[Route('/user', name: 'app_user')]
+    public function index(ReservationCoachRepository $reservationCoachRepository, ReservationDieteticienRepository $reservationDieteticienRepository): Response
     {
-        $reservationCoach = new ReservationCoach();
-        $reservationDieteticien = new ReservationDieteticien();
+        /**
+         * @var App\Entity\User $user
+         */
+        $user = $this->getUser();
 
-        $iduser = $request->get('id');
-        $reservationCoachUser = $postrepo->findOneBy(["id" => $iduser]);
+        $user_id = $user->getId();
 
-        $reservationCoach->getDateDebut();
-        $reservationDieteticien->getDateDebut();
+        $reservationsCoach = $reservationCoachRepository->findByUserField($user_id);
+        $reservationsDieteticien = $reservationDieteticienRepository->findByUserField($user_id);
 
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
             'user' => $user,
-            'reservationCoach' => $reservationCoach,
-            'reservationDieteticien' => $reservationDieteticien
-                       
+            'reservationsDieteticiens' => $reservationsDieteticien,
+            'reservationsCoachs' => $reservationsCoach                 
         ]);
     }
    

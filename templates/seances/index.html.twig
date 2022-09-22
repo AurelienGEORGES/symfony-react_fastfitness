@@ -25,7 +25,6 @@
 				<button type="submit" class="btn btn-success mb-2 px-1 py-1 fs-3">Valider</button>
 			</div>
 			{{ form_end(reservationDieteticien) }}
-
 	</div>
 
 
@@ -40,11 +39,10 @@
 	<div class="fs-3 text-white d-flex">
 		{{ form_start(reservationCoach) }}
 
-
 		{{ form_row(reservationCoach.dateDebut, {
-            label: 'Date de début de la réservation : '
+            label: 'Date de début de la réservation : ',
+			id: "datetimepicker2"
         }) }}
-
 		
 		<div class="d-flex justify-content-center my-4">
 			<button type="submit" class="btn btn-success mb-2 px-1 py-1 fs-3">Valider</button>
@@ -58,12 +56,14 @@
 
 {% block javascripts %}
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 <script src="{{asset('js/jquery.datetimepicker.full.min.js')}}"></script>
 <script>
+
 	// see doc at https://xdsoft.net/jqplugins/datetimepicker/
 	$.datetimepicker.setLocale('fr');
-	const conf = {
-		format:'d-m-Y',
+	const conf1 = {
+		format:'Y-m-d H:i',
 		inline: true,
 		dayOfWeekStart: 1,
 		disabledWeekDays: [0,6],
@@ -71,7 +71,53 @@
 		minDate: 0,
 		minTime:'09:00:00',
 		maxTime:'18:00:00',
-	}
-	$('#datetimepicker1').datetimepicker(conf);
+		formatDate:'Y-m-d',
+		onGenerate: function(ct, $i){
+			var date=moment(ct).format('Y-MM-D');
+			var datesArray={{ reservationDieteticienPrises|json_encode|raw }};
+
+			$.each(datesArray, function(i, dates){
+				if(date in dates){
+					var reservationDieteticienPrises=dates[date];
+					$.each(reservationDieteticienPrises, function(index, time){
+						var hour=reservationDieteticienPrises['hour'];
+						var minute=reservationDieteticienPrises['minute'];
+						var $object=$('[data-hour="' + hour + '"][data-minute="' + minute + '"]');
+						$object.addClass('xdsoft_disabled');
+					});
+				}
+			});
+		}
+	};
+	const conf2 = {
+		format:'Y-m-d H:i',
+		inline: true,
+		dayOfWeekStart: 1,
+		disabledWeekDays: [0,6],
+		theme: 'dark',
+		minDate: 0,
+		minTime:'09:00:00',
+		maxTime:'18:00:00',
+		formatDate:'Y-m-d',
+		onGenerate: function(ct, $i){
+			var date=moment(ct).format('Y-MM-D');
+			var datesArray={{ reservationCoachPrises|json_encode|raw }};
+
+			$.each(datesArray, function(i, dates){
+				if(date in dates){
+					var reservationCoachPrises=dates[date];
+					$.each(reservationCoachPrises, function(index, time){
+						var hour=reservationCoachPrises['hour'];
+						var minute=reservationCoachPrises['minute'];
+						var $object=$('[data-hour="' + hour + '"][data-minute="' + minute + '"]');
+						$object.addClass('xdsoft_disabled');
+					});
+				}
+			});
+		}
+	};
+	$('#datetimepicker1').datetimepicker(conf1);
+	$('#datetimepicker2').datetimepicker(conf2);
+	
 </script>
 {% endblock %}

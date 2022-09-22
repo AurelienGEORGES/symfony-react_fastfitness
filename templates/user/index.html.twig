@@ -1,15 +1,17 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Profil{% endblock %}
 
 {% block content %}
     
     <h1 class="titleBlog my-5 mx-2">Salut {{ user.username }}! Bienvenue sur ta page profil</h1>
-    <p class="text-white ms-3 fs-4">voici ton email actuel : {{ user.email }}</p>
+    <p class="text-white ms-3 fs-4">ton email : {{ user.email }}</p>
+    <p class="text-white ms-3 fs-4">voici tes réservations diététicien : </p>
     {% for reservationsDieteticien in reservationsDieteticiens %}
-    <p class="text-white ms-3 fs-4">voici tes réservations diététicien : le {{ reservationsDieteticien.dateDebut ? reservationsDieteticien.dateDebut|date('d/m/Y à H:i') : '' }}</p>
+    <p class="text-white ms-3 fs-4">Le {{ reservationsDieteticien.dateDebut ? reservationsDieteticien.dateDebut|date('d/m/Y à H:i') : '' }}</p>
     {% endfor %}
+    <p class="text-white ms-3 fs-4">voici tes réservations de coaching : </p>
     {% for reservationsCoach in reservationsCoachs %}
-    <p class="text-white ms-3 fs-4">voici tes réservation coach : le {{  reservationsCoach.dateDebut ? reservationsCoach.dateDebut|date('d/m/Y à H:i') : '' }}</p>
+    <p class="text-white ms-3 fs-4">Le {{  reservationsCoach.dateDebut ? reservationsCoach.dateDebut|date('d/m/Y à H:i') : '' }}</p>
     {% endfor %}
 {% endblock %}

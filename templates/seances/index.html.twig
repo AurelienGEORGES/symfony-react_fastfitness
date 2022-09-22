@@ -17,7 +17,8 @@
 			{{ form_start(reservationDieteticien) }}
 
 			{{ form_row(reservationDieteticien.dateDebut, {
-            label: 'Date de début de la réservation : '
+            label: 'Date de début de la réservation : ',
+			id: "datetimepicker1"
         }) }}
 
 			<div class="d-flex justify-content-center my-4">
@@ -53,3 +54,24 @@
 
 
 </section>{% endblock %}
+
+
+{% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="{{asset('js/jquery.datetimepicker.full.min.js')}}"></script>
+<script>
+	// see doc at https://xdsoft.net/jqplugins/datetimepicker/
+	$.datetimepicker.setLocale('fr');
+	const conf = {
+		format:'d-m-Y',
+		inline: true,
+		dayOfWeekStart: 1,
+		disabledWeekDays: [0,6],
+		theme: 'dark',
+		minDate: 0,
+		minTime:'09:00:00',
+		maxTime:'18:00:00',
+	}
+	$('#datetimepicker1').datetimepicker(conf);
+</script>
+{% endblock %}

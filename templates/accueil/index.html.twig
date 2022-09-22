@@ -4,65 +4,74 @@
 {% endblock %}
 
 {% block content %}
-	<section class="">
-		<div class="">
-			<img src="{{ asset('assets/images/accueil-fast-fitness-1.png') }}" alt="image de fast fitness" class="image-accueil">
-		</div>
-
-		<div class="d-flex justify-content-center my-1 mx-3">
-			<p class="text-white fs-5 w-75">Situé à Paris, la salle propose l'équipement nécessaire pour le suivi et l'accompagnement de sportifs et sportives professionnel(le)s souhaitant augmenter leurs performances. Grace à un coaching spécialisé pour chaque pratiques sportives nous vous permettront d'obtenir une musculature et une diététique optimales afin de remporter vos compétitions. Nous sommes Julien Serne et Marc Fret, deux professionnels reconnus dans le coaching préparatoire d'athlètes de haut niveau (Iron Man, Marathonniens, sportifs visant les compétions internationnales). Grace à nos conseils vous serez sûr d'être préparé au mieux pour les compétitions.</p>
-		</div>
-
-		<div class="d-flex justify-content-center">
-			<div id="carouselExampleControls" class="carousel slide images-slider-accueil" data-bs-ride="carousel">
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="{{ asset('assets/images/img1.webp') }}" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="{{ asset('assets/images/img20.webp') }}" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="{{ asset('assets/images/img2.webp') }}" class="d-block w-100" alt="...">
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Precedent</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Suivant</span>
-				</button>
+	<section class="d-flex justify-content-center flex-column">
+		<div class="d-flex justify-content-center py-4">
+			<div class="w-75">
+				<img src="{{ asset('assets/images/accueil-fast-fitness-1.png') }}" alt="image de fast fitness" class="image-accueil">
 			</div>
 		</div>
-
-		<div class="d-flex justify-content-center my-1 mx-3">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5251.790343877211!2d2.311771369775398!3d48.841138199999975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67034ac4d4559%3A0xe467cc61460dc234!2sGare%20Montparnasse!5e0!3m2!1sfr!2sfr!4v1661633095846!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		<div class="d-flex justify-content-center mb-3">
+			<p class="text-white fs-5 w-75">Situé à Paris à 5 minutes à pieds de la gare Montparnasse, la salle propose l'équipement nécessaire pour le suivi et l'accompagnement de sportifs et sportives professionnel(le)s souhaitant augmenter leurs performances. Grace à un coaching spécialisé pour chaque pratiques sportives nous vous permettront d'obtenir une musculature et une diététique optimales afin de remporter vos compétitions. Nous sommes Julien Serne et Marc Fret, deux professionnels reconnus dans le coaching préparatoire d'athlètes de haut niveau (Iron Man, Marathonniens, sportifs visant les compétions internationnales). Grace à nos conseils vous serez sûr d'être préparé au mieux pour les compétitions.</p>
 		</div>
-		<div class="d-flex justify-content-center my-1 mx-3">
-			<p class="text-white fs-6">A cinq minutes à pied de la gare Montparnasse. Au 1 rue Maréchal Juin 75001 Paris.</p>
+		<div class="d-flex justify-content-center py-4">
+			<div class="d-flex justify-content-center w-75">
+				<div id="carouselExampleControls" class="carousel slide images-slider-accueil" data-bs-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="{{ asset('assets/images/img1.webp') }}" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="{{ asset('assets/images/img20.webp') }}" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="{{ asset('assets/images/img2.webp') }}" class="d-block w-100" alt="...">
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Precedent</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Suivant</span>
+					</button>
+				</div>
+			</div>
 		</div>
-		<div class="d-flex justify-content-center my-1 mx-3">
-			<h2 class="titleBlocsAccueil fs-4">FastFitness vous propose un accompagnement de qualité avec un diététicien du sport et un coach</h2>
+		
+		
+		<div class="d-flex justify-content-center mt-5">
+			<h2 class="titleBlocsAccueil fs-2 w-75 text-center">FastFitness vous propose un accompagnement de qualité</h2>
 		</div>
-		<div class="d-flex justify-content-center my-1 mx-3">
-			<p class="text-white fs-6">Nos deux professionnel sont là pour vous conseiller et vous guider vers l'objectif sportif que vous vous êtes fixé. Notre coach a entrainé des professionnels dans de nombreuses disciplines. Notre diététicien propose des programmes qui ont faits leurs preuves. L'équipement nécessaire vers un accompagnement complet vous est proposé. Les conseils que vous obtiendrez vous permettront d'acquérir de nombreuses techniques pour avoir le physique qui convient à votre domaine. Nos professionnel entrainent des sportifs essentiellement mais aussi des mannequins et des acteurs. Si vous voulez avoir un programme sur mesure vous êtes sur la bonne voie. Nos deux expert vous attendent!</p>
+		
+		<div class="d-flex justify-content-center">
+			<p class="text-white fs-5 w-75">Nos deux professionnel sont là pour vous conseiller et vous guider vers l'objectif sportif que vous vous êtes fixé. Notre coach a entrainé des professionnels dans de nombreuses disciplines. Notre diététicien propose des programmes qui ont faits leurs preuves. L'équipement nécessaire vers un accompagnement complet vous est proposé. Les conseils que vous obtiendrez vous permettront d'acquérir de nombreuses techniques pour avoir le physique qui convient à votre domaine. Nos professionnel entrainent des sportifs essentiellement mais aussi des mannequins et des acteurs. Si vous voulez avoir un programme sur mesure vous êtes sur la bonne voie. Nos deux expert vous attendent!</p>
 		</div>
-		<div class="d-flex justify-content-center my-1">
-			<a role="button" href="{{ path('app_seances') }}" class="btn btn-success mb-2">Reserver sa séance</a>
+		</div>
+		<div class="d-flex justify-content-center my-3">
+			<a role="button" href="{{ path('app_seances') }}" class="btn btn-success fs-3 bouton-accueil text-dark">Reserver sa séance</a>
+		</div>
+		<div class="d-flex justify-content-center py-4">
+			<div class="w-75">
+				<img src="{{ asset('assets/images/img18.jpg') }}" alt="image de fast fitness" class="image-accueil">
+			</div>
 		</div>
 		<div class="d-flex justify-content-center my-1 mx-3">
 			<h3 class="titleBlocsAccueil fs-3">Qui sommes nous?</h3>
 		</div>
-		<div class="d-flex justify-content-center my-1 mx-3">
-			<p class="text-white fs-6">Nous sommes deux professionnels experimentés dans la nutrition sportive et le coaching de sportifs de haut niveaux. Nous avons également élaboré des programmes pour des acteurs et des mannequins. Si vous voulez avoir des conseils de professionnels vous pouvez réserver en ligne. Les résultats que vous allez obtenir vont booster votre carrière. Les professionnels qe nous entrainons font des progrès considérables en suivant nos conseils.</p>
+		<div class="d-flex justify-content-center">
+			<p class="text-white fs-5 w-75">Nous sommes deux professionnels experimentés dans la nutrition sportive et le coaching de sportifs de haut niveaux. Nous avons également élaboré des programmes pour des acteurs et des mannequins. Si vous voulez avoir des conseils de professionnels vous pouvez réserver en ligne. Les résultats que vous allez obtenir vont booster votre carrière. Les professionnels qe nous entrainons font des progrès considérables en suivant nos conseils.</p>
+		</div>
+		<div class="d-flex justify-content-center py-4">
+			<div class="w-75">
+				<img src="{{ asset('assets/images/img19.jpg') }}" alt="image de fast fitness" class="image-accueil">
+			</div>
 		</div>
 		<div class="d-flex justify-content-center mt-2 mx-3">
-			<p class="text-white fs-6">Bonjour je m'appelle Marc Fret. J'espère que tu vas franchir le cap pour améliorer tes performances. Choisir mes programmes c'est évoluer en terme de conception d'entrainement sur mesure. Si tu es déterminé et que tu souhaite aller vite viens me rencontrer. tes progrès seront rapides et efficaces. J'ai déjà entrainé des athlètes de hauts niveaux, qui ont remporté des compétitions internationnales. Ton programme sera rigoureux mais tes résultats seront à la hauteur de tes attentes.</p>
+			<q class="text-white fs-6">Bonjour je m'appelle Marc Fret. J'espère que tu vas franchir le cap pour améliorer tes performances. Choisir mes programmes c'est évoluer en terme de conception d'entrainement sur mesure. Si tu es déterminé et que tu souhaite aller vite viens me rencontrer. tes progrès seront rapides et efficaces. J'ai déjà entrainé des athlètes de hauts niveaux, qui ont remporté des compétitions internationnales. Ton programme sera rigoureux mais tes résultats seront à la hauteur de tes attentes.</q>
 		</div>
 		<div class="d-flex my-1 mx-3">
-			<p class="text-white fs-6">Bonjour je m'appelle Julien Serne.<br/>Je suis diététicien sprotif et j'accompagne dans la prise de poid musculaire ou la période de sèche. Je suis régulièrement consulté par des acteurs également. Ils viennent me voir pour obtenir ou stabiliser un poid idéal. La nutrition est fondamentale et la nutrition sportive permet d'obtenir des gains rapidement. Pourquoi ne pas en profiter? Viens me rencontrer à Fast Fitness et profite de conseils avisés qui te permettront d'atteidre tes objectifs.</p>
+			<q class="text-white fs-6">Bonjour je m'appelle Julien Serne.<br/>Je suis diététicien sprotif et j'accompagne dans la prise de poid musculaire ou la période de sèche. Je suis régulièrement consulté par des acteurs également. Ils viennent me voir pour obtenir ou stabiliser un poid idéal. La nutrition est fondamentale et la nutrition sportive permet d'obtenir des gains rapidement. Pourquoi ne pas en profiter? Viens me rencontrer à Fast Fitness et profite de conseils avisés qui te permettront d'atteidre tes objectifs.</q>
 		</div>
 	</section>
 {% endblock %}

@@ -41,6 +41,9 @@
 								<li class="nav-item">
 									<a class="nav-link active" aria-current="page" href="{{ path('app_post_index') }}">Blog Nutrition</a>
 								</li>
+								<li class="nav-item">
+									<a class="nav-link active" aria-current="page" href="{{ path('app_contact') }}">Contact</a>
+								</li>
 								{% if is_granted('ROLE_USER') %}
 								<li class="nav-item">
 									<a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
@@ -85,21 +88,7 @@
 								<a href="#">politique de confidentialité</a>
 							</li>
 						</div>
-						<div>
-							<li class="mx-3 my-3 fw-bolder">
-								<p>1 rue du Maréchal Juin 75034</p>
-							</li>
-						</div>
-						<div>
-							<li class="mx-3 my-3 fw-bolder">
-								<p class="fw-900">fastfitness@gmail.com</p>
-							</li>
-						</div>
-						<div>
-							<li class="mx-3 my-3 fw-bolder">
-								<p>06.87.53.24.90</p>
-							</li>
-						</div>
+						
 					</ul>
 				</footer>
 			</main>

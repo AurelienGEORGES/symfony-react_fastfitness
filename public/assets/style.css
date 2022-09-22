@@ -191,10 +191,19 @@ main {
     height: auto;
 }
 
+.images-slider-accueil {
+    height: 150px;
+}
+
 @media (min-width:600px) {
 
 .images-slider-accueil {
-    height: auto; 
     width: 60%;
+    height: auto;
 }
+
+}
+
+.bouton-accueil {
+    background: #edf509 !important; 
 }

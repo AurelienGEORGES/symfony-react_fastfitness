@@ -17,7 +17,7 @@
 				<div class="text-white">
 					<h5 class="card-title my-3 fs-2">{{ post.title }}</h5>
 					<p class="card-text my-3">{{ post.content }}</p>
-					<p>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+					<p>{{ post.createdAt ? post.createdAt|date('d-m-Y') : '' }}</p>
 					{% if is_granted('ROLE_ADMIN') %}
 					<div class="d-flex justify-content-center flex-row">
 					<a href="{{ path('app_post_edit', {'id': post.id}) }}" class="btn btn-success me-3">Modifier</a>
@@ -40,13 +40,12 @@
 	<div class="d-flex justify-content-center">
 		<article class="my-3 queries-articles">
 
-			<div class="card">
+			<div class="card bg-dark text-white">
 				<div class="card-body">
 					{#<p class="card-text">{{ comment.username }}</p>#}
+					<p class="card-text">De notre ami(e) {{ comment.user.username }}</p>
 					<p class="card-text">{{ comment.content }}</p>
-					<p class="card-text">par : {{ comment.user.username }}</p>
-					<p class="card-text"></p>
-					<p>date : {{ post.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</p>
+					<p>Le {{ post.createdAt ? comment.createdAt|date('d-m-Y') : '' }}</p>
 					{% if is_granted('ROLE_ADMIN') %}
 					<div class="d-flex justify-content-center flex-row">
 					<a href="{{ path('app_comment_edit', {'id': comment.id}) }}" class="btn btn-success me-3">Modifier</a>

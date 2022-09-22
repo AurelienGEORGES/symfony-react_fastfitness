@@ -19,15 +19,17 @@ class PostType extends AbstractType
     {
         $builder
 
+            ->add('title', TextType::class, [
+                'label' => 'titre de l"article : ',
+                'required' => true
+                ])
+
             ->add('content', TextareaType::class, [
                 'label' => 'contenu de l"article : ',
                 'required' => true
                 
                 ])
-            ->add('title', TextType::class, [
-                'label' => 'titre de l"article : ',
-                'required' => true
-                ])
+            
 
             ->add('image', FileType::class, [
                 'label' => 'image de l"article : ',

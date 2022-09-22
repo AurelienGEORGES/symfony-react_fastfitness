@@ -17,7 +17,7 @@ class ReservationCoachType extends AbstractType
         ->add('dateDebut', DateTimeType::class, [
             'widget' => 'single_text',
             'attr' => [
-                'class' => 'form-control shadow'
+                'class' => 'form-control shadow',
             ],
             'label_attr' => [
                 'class' => 'visually-hidden'

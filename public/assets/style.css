@@ -7,13 +7,9 @@ main {
     background-color: black;
 }
 
-a:hover {
-    color: #666 !important;
-}
-
 /* style du header */
 .headerColors {
-    background-color: #4CAF50;
+    background-color: #edf509;
 }
 
 .headerColors a {
@@ -23,14 +19,14 @@ a:hover {
 
 /*style du bloc principal*/
 .titleAccueil {
-    color: #4CAF50;
+    color: #2fc134;
     text-align: center;
 }
 
 
 /*style du footer*/
 .footer {
-    background-color: #4CAF50;
+    background-color: #edf509;
 }
 
 .footer a {
@@ -44,20 +40,20 @@ a:hover {
 
 /* style du blog */
 .titleBlog {
-    color: #4CAF50;
+    color: #2fc134;
     text-align: center;
 
 }
 
 /* style de la page séances */
 .titleSeances {
-    color: #4CAF50;
+    color: #2fc134;
     text-align: center;
 }
 
 /* style des titres de la page accueil*/
 .titleBlocsAccueil {
-    color: green !important;
+    color: #2fc134 !important;
 }
 
 .blocsTextAccueil {
@@ -188,3 +184,17 @@ a:hover {
 }
 
 /*FIN STYLE DES IMAGES DES ARTICLES*/
+
+/*DEBUT STYLE DES IMAGES*/
+.image-accueil {
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width:600px) {
+
+.images-slider-accueil {
+    height: auto; 
+    width: 60%;
+}
+}

@@ -20,7 +20,7 @@ main {
 
 /* style du header */
 .headerColors {
-    background-color: #edf509;
+    background-color: #2fc134;
 }
 
 .headerColors a {
@@ -30,7 +30,11 @@ main {
 
 /*style du footer*/
 .footer {
-    background-color: #edf509;
+    background-color: #2fc134;
+}
+
+.footer ul {
+    margin: 0 !important;
 }
 
 .footer a {
@@ -194,8 +198,8 @@ main {
 }
 
 .images-slider-partie-2 {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 20rem;
 }
 
 .image-coach-bouton {
@@ -207,4 +211,7 @@ main {
     width: 300px;
     height: auto;
 }
- 
+
+.paragraphes-profil {
+    color: #CC5500;
+}

@@ -6,7 +6,7 @@
 {% block content %}
 
 	<h1 class="titleBlog my-5 mx-2">L'article est consultable en entier sur cette page,<br/>il est même possible de le commenter</h1>
-	<div class="d-flex justify-content-center bg-dark">
+	<div class="d-flex justify-content-center">
 	<article class="my-3 fs-5 queries-articles-show-post">
 
 		<div class="card bg-dark">
@@ -20,7 +20,7 @@
 					<p>{{ post.createdAt ? post.createdAt|date('d-m-Y') : '' }}</p>
 					{% if is_granted('ROLE_ADMIN') %}
 					<div class="d-flex justify-content-center flex-row">
-					<a href="{{ path('app_post_edit', {'id': post.id}) }}" class="btn btn-success me-3">Modifier</a>
+					<a href="{{ path('app_post_edit', {'id': post.id}) }}" class="btn btn-success me-3 bouton-accueil">Modifier</a>
 					{{ include('post/_delete_form.html.twig') }}
 					</div>
 					
@@ -48,7 +48,7 @@
 					<p>Le {{ post.createdAt ? comment.createdAt|date('d-m-Y') : '' }}</p>
 					{% if is_granted('ROLE_ADMIN') %}
 					<div class="d-flex justify-content-center flex-row">
-					<a href="{{ path('app_comment_edit', {'id': comment.id}) }}" class="btn btn-success me-3">Modifier</a>
+					<a href="{{ path('app_comment_edit', {'id': comment.id}) }}" class="btn btn-success me-3 bouton-accueil">Modifier</a>
 					{{ include('comment/_delete_form.html.twig') }}
 					</div>
 					{% endif %}
@@ -69,7 +69,7 @@
 	
 	
 <div class="d-flex justify-content-center">
-<a href="{{ path('app_comment_new', {'id': post.id}) }}" class="btn btn-success my-4 me-4">Nouveau commentaire</a>
-<a href="{{ path('app_post_index') }}" class="btn btn-success my-4">Tous les articles</a>
+<a href="{{ path('app_comment_new', {'id': post.id}) }}" class="btn btn-success my-4 me-4 bouton-accueil">Nouveau commentaire</a>
+<a href="{{ path('app_post_index') }}" class="btn btn-success my-4 bouton-accueil">Tous les articles</a>
 </div>
 {% endblock %}

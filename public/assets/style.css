@@ -7,6 +7,17 @@ main {
     background-color: black;
 }
 
+/* style des titres de la page accueil*/
+.titlesBlocsAccueil {
+    color: #2fc134;
+}
+
+/* style du bouton de la page d'accueil */
+.bouton-accueil {
+    background-color: #2fc134 !important;
+    color: black !important;
+}
+
 /* style du header */
 .headerColors {
     background-color: #edf509;
@@ -16,13 +27,6 @@ main {
     color: black;
     font-weight: 900;
 }
-
-/*style du bloc principal*/
-.titleAccueil {
-    color: #2fc134;
-    text-align: center;
-}
-
 
 /*style du footer*/
 .footer {
@@ -49,15 +53,6 @@ main {
 .titleSeances {
     color: #2fc134;
     text-align: center;
-}
-
-/* style des titres de la page accueil*/
-.titleBlocsAccueil {
-    color: #2fc134 !important;
-}
-
-.blocsTextAccueil {
-    text-align: justify;
 }
 
 .images-posts {
@@ -186,24 +181,30 @@ main {
 /*FIN STYLE DES IMAGES DES ARTICLES*/
 
 /*DEBUT STYLE DES IMAGES*/
-.image-accueil {
+@media (min-width:600px) {
+
+    .images-slider-partie-4 { 
+    }
+
+}
+
+.images-slider-partie-4 {
+    width: auto;
+    height: 40rem;
+}
+
+.images-slider-partie-2 {
     width: 100%;
     height: auto;
 }
 
-.images-slider-accueil {
-    height: 150px;
-}
-
-@media (min-width:600px) {
-
-.images-slider-accueil {
-    width: 60%;
+.image-coach-bouton {
+    width: 100%;
     height: auto;
 }
 
+.datetimepicker1 {
+    width: 300px;
+    height: auto;
 }
-
-.bouton-accueil {
-    background: #edf509 !important; 
-}
+ 

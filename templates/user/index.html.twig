@@ -1,17 +1,124 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}Profil{% endblock %}
+{% block title %}Profil
+{% endblock %}
 
 {% block content %}
-    
-    <h1 class="titleBlog my-5 mx-2">Salut {{ user.username }}! Bienvenue sur ta page profil</h1>
-    <p class="text-white ms-3 fs-4">ton email : {{ user.email }}</p>
-    <p class="text-white ms-3 fs-4">voici tes réservations diététicien : </p>
-    {% for reservationsDieteticien in reservationsDieteticiens %}
-    <p class="text-white ms-3 fs-4">Le {{ reservationsDieteticien.dateDebut ? reservationsDieteticien.dateDebut|date('d/m/Y à H:i') : '' }}</p>
-    {% endfor %}
-    <p class="text-white ms-3 fs-4">voici tes réservations de coaching : </p>
-    {% for reservationsCoach in reservationsCoachs %}
-    <p class="text-white ms-3 fs-4">Le {{  reservationsCoach.dateDebut ? reservationsCoach.dateDebut|date('d/m/Y à H:i') : '' }}</p>
-    {% endfor %}
+	<h1 class="titleBlog my-5 mx-2">Salut
+		{{ user.username }}! Bienvenue sur ta page profil</h1>
+
+	<p class="text-white ms-3 fs-4 text-center">ton email :
+		{{ user.email }}</p>
+
+	<div class="fs-3 text-white my-5 flex-column">
+
+		<div class="d-flex d-flex justify-content-center">
+			<p class="text-white fs-4">Voici ton planning diététique sportive avec Julien</p>
+		</div>
+
+		<div class="d-flex d-flex justify-content-center">
+			{{ form_start(reservationCoach) }}
+
+			{{ form_row(reservationCoach.dateDebut, {
+            label: 'Date de début de la réservation : ',
+			id: "datetimepicker1"
+        }) }}
+
+			{{ form_end(reservationCoach) }}
+		</div>
+
+	</div>
+
+	<div class="fs-3 text-white my-5 flex-column">
+
+		<div class="d-flex d-flex justify-content-center">
+			<p class="text-white fs-4">Voici ton planning de coaching avec Marc</p>
+		</div>
+
+		<div class="d-flex d-flex justify-content-center">
+			{{ form_start(reservationDieteticien) }}
+
+			{{ form_row(reservationDieteticien.dateDebut, {
+            label: 'Date de début de la réservation : ',
+			id: "datetimepicker2"
+        }) }}
+
+			{{ form_end(reservationDieteticien) }}
+		</div>
+
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+	<script src="{{asset('js/jquery.datetimepicker.full.min.js')}}"></script>
+	<script>
+
+		// see doc at https://xdsoft.net/jqplugins/datetimepicker/
+        $.datetimepicker.setLocale('fr');
+        const conf1 = {
+            format: 'Y-m-d H:i',
+            inline: true,
+            dayOfWeekStart: 1,
+            disabledWeekDays: [
+            0, 6
+            ],
+            theme: 'dark',
+            minDate: 0,
+            minTime: '09:00:00',
+            maxTime: '18:00:00',
+            formatDate: 'Y-m-d',
+            onGenerate: function (ct, $i) {
+                var date = moment(ct).format('Y-MM-D');
+                var datesArray = {{ reservationsDieteticiensByUser|json_encode|raw }};
+
+                $.each(datesArray, function (i, dates) {
+                if (date in dates) {
+                    var reservationsDieteticiensByUser = dates[date];
+                    $.each(reservationsDieteticiensByUser, function (index, time) {
+                    var hour = reservationsDieteticiensByUser['hour'];
+                    var minute = reservationsDieteticiensByUser['minute'];
+                    var $object = $('[data-hour="' + hour + '"][data-minute="' + minute + '"]');
+                    $object.addClass('xdsoft_disabled');
+                    });
+                }
+            });
+            }
+        };
+        const conf2 = {
+            format: 'Y-m-d H:i',
+            inline: true,
+            dayOfWeekStart: 1,
+            disabledWeekDays: [
+            0, 6
+            ],
+            theme: 'dark',
+            minDate: 0,
+            minTime: '09:00:00',
+            maxTime: '18:00:00',
+            formatDate: 'Y-m-d',
+            onGenerate: function (ct, $i) {
+                var date = moment(ct).format('Y-MM-D');
+                var datesArray = {{ reservationsCoachsByUser|json_encode|raw }};
+
+                $.each(datesArray, function (i, dates) {
+                if (date in dates) {
+                var reservationsCoachsByUser = dates[date];
+                $.each(reservationsCoachsByUser, function (index, time) {
+                var hour = reservationsCoachsByUser['hour'];
+                var minute = reservationsCoachsByUser['minute'];
+                var $object = $('[data-hour="' + hour + '"][data-minute="' + minute + '"]');
+                $object.addClass('xdsoft_disabled');
+                });
+                }
+            });
+            }
+        };
+    $('#datetimepicker1').datetimepicker(conf1);
+    $('#datetimepicker2').datetimepicker(conf2);
+
+	</script>
+
 {% endblock %}

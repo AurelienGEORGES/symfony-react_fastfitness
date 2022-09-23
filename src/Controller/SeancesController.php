@@ -42,6 +42,7 @@ class SeancesController extends AbstractController
         }
 
         $coachReservations = $reservationCoachRepository->findAll();
+        
         $coachReservationsDates = array_map(function($reservation) {
             return [
                 $reservation->getDateDebut()->format('Y-m-d') => [

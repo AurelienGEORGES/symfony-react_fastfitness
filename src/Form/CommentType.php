@@ -7,15 +7,20 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('content', TextType::class, [
-                'label' => 'contenu du commentaire : '
-                ])      
+        ->add('content', TextareaType::class, [
+            'attr' => ['placeholder' => 'rentrer le commentaire dans ce champ',
+            'class' => 'input-group-text'
+        ],
+            'required' => true,
+            'label' => ' '
+            ])      
         ;
     }
 

@@ -37,6 +37,7 @@ class SeancesController extends AbstractController
             $reservationCoach->setUser($user);
             $reservationCoach->setCreatedAt($date);
             $reservationCoach->setDateFin($date);
+            $reservationCoach->setTitle('reservation coach');
             $entityManager->persist($reservationCoach);
             $entityManager->flush();
         }

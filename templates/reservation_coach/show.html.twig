@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ReservationCoach{% endblock %}
+
+{% block body %}
+    <h1>ReservationCoach</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reservation_coach.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ reservation_coach.createdAt ? reservation_coach.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateDebut</th>
+                <td>{{ reservation_coach.dateDebut ? reservation_coach.dateDebut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFin</th>
+                <td>{{ reservation_coach.dateFin ? reservation_coach.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ reservation_coach.title }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_reservation_coach_index') }}">back to list</a>
+
+    <a href="{{ path('app_reservation_coach_edit', {'id': reservation_coach.id}) }}">edit</a>
+
+    {{ include('reservation_coach/_delete_form.html.twig') }}
+{% endblock %}

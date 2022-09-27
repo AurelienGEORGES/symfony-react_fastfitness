@@ -12,7 +12,7 @@
 	{% if is_granted('ROLE_ADMIN') %}
 		<h1 class="titleBlog my-5 mx-2">Bienvenue Julien vous pouvez écrire un article ici</h1>
 		<div class="d-flex justify-content-center">
-		<a href="{{ path('app_post_new') }}" class="btn btn-success">Créer un article</a>
+		<a href="{{ path('app_post_new') }}" class="btn btn-success bouton-accueil">Créer un article</a>
 		</div>
 	{% endif %}
 
@@ -28,11 +28,11 @@
 						
 						<div class="card-body">
 							<h5 class="card-title">{{ post.title }}</h5>
-							<p class="card-text">{{ post.content |u.truncate(100,'...',false) }}</p>
+							<p class="card-text">{{ post.content |u.truncate(100,'...',false)|raw }}</p>
 							<p>{{ post.createdAt ? post.createdAt|date('d-m-Y') : '' }}</p>
 
 							<div class="d-flex justify-content-center">
-							<a href="{{ path('app_post_show', {'id': post.id}) }}" class="btn btn-success bouton-accueil">Voir l'article en entier</a>
+							<a href="{{ path('app_post_show', {'id': post.id}) }}" class="btn btn-success bouton-accueil">Voir l'article</a>
 							</div>
 
 						</div>

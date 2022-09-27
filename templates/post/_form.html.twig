@@ -1,11 +1,19 @@
-<div class="fs-2 text-white custom-form-nouvel-article">
+<div  class="d-flex justify-content-center">
+<div class="w-75">
 
 {{ form_start(form) }}
     
-    {{ form_widget(form) }}
-   
-    <div class="d-flex justify-content-center my-4">
-    <button class="btn btn-success">{{ button_label|default('Enregister') }}</button>
+    {{ form_row(form.title) }}
+    {{ form_row(form.content) }}
+    <div class="input-group my-4">
+    {{ form_row(form.image) }}
     </div>
+    
+    <div class="d-flex justify-content-center my-4">
+    <button class="btn btn-success bouton-accueil">{{ button_label|default('Enregister') }}</button>
+    </div>
+
 {{ form_end(form) }}
+
+</div>
 </div>

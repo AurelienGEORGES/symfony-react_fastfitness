@@ -4,10 +4,10 @@
 
 {% block content %}
     <h1 class="titleBlog my-5 mx-2">Posez votre commentaire!<br />Julien se fera un plaisir d'y répondre</h1>
-    <div class="text-white fs-3 d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
     {{ include('comment/_form.html.twig') }}
     </div>
-    <div class="d-flex justify-content-center my-4">
-    <a href="{{ path('app_post_index') }}" class="btn btn-success">Page articles</a>
+    <div class="d-flex justify-content-center my-1">
+    <a href="{{ path('app_post_index') }}" class="btn btn-success bouton-accueil">Page articles</a>
     </div>
 {% endblock %}

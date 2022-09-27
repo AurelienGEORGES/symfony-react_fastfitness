@@ -4,6 +4,7 @@
         "@symfony/stimulus-bridge": "^3.2.0",
         "@symfony/webpack-encore": "^3.0.0",
         "core-js": "^3.23.0",
+        "file-loader": "^6.0.0",
         "regenerator-runtime": "^0.13.9",
         "webpack-notifier": "^1.15.0"
     },
@@ -16,7 +17,13 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@fullcalendar/bootstrap5": "^5.11.3",
+        "@fullcalendar/core": "^5.11.3",
         "add": "^2.0.6",
+        "bootstrap": "^5.2.1",
+        "bootstrap-icons": "^1.9.1",
+        "ckeditor4": "^4.19.1",
         "yarn": "^1.22.19"
     }
+    
 }

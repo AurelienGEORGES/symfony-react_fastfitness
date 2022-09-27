@@ -5,13 +5,12 @@ namespace App\Form;
 
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PostType extends AbstractType
 {
@@ -20,19 +19,22 @@ class PostType extends AbstractType
         $builder
 
             ->add('title', TextType::class, [
-                'label' => 'titre de l"article : ',
-                'required' => true
+                'attr' => ['placeholder' => 'rentrer le titre dans ce champ',
+                'class' => 'input-group-text'
+            ],
+                'required' => true,
+                'label' => ' '
                 ])
 
-            ->add('content', TextareaType::class, [
-                'label' => 'contenu de l"article : ',
-                'required' => true
-                
+            ->add('content', CKEditorType::class, [
+                'config_name' => 'base_config',
+                'config'      => array('uiColor' => '#ffffff'),
+                'label' => ' '
                 ])
-            
 
             ->add('image', FileType::class, [
-                'label' => 'image de l"article : ',
+                'attr' => ['class' => 'form-control'],
+                'label' => ' ',
                 'mapped' => false,
                 'required' => true,
                 'constraints' => [

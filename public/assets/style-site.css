@@ -1,11 +1,18 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: "whitneymedium";
+}
+
+@font-face {
+    font-family: "whitneymedium", Arial;
+    src: url("whitneymedium.woff") format("woff");
 }
 
 main {
     background-color: black;
 }
+
 
 /* style des titres de la page accueil*/
 .titlesBlocsAccueil {
@@ -16,11 +23,16 @@ main {
 .bouton-accueil {
     background-color: #2fc134 !important;
     color: black !important;
+    font-weight: 700 !important;
 }
-
+.btn-creation-article {
+    background-color: #CC5500 !important;
+    color: black !important;
+    font-weight: 700 !important;
+}
 /* style du header */
 .headerColors {
-    background-color: #2fc134;
+    background-color: #f9f103;
 }
 
 .headerColors a {
@@ -28,9 +40,13 @@ main {
     font-weight: 900;
 }
 
+.navbar {
+    padding: 0px !important;
+}
+
 /*style du footer*/
 .footer {
-    background-color: #2fc134;
+    background-color: #fce706;
 }
 
 .footer ul {
@@ -122,41 +138,20 @@ main {
 /*FIN STYLE FORMULAIRE LOGIN*/
 
 /*DEBUT STYLE FORMULAIRE NOUVEL ARTICLE*/
-.custom-form-nouvel-article {
-    display: flex;
-    justify-content: center;
-}
-
-#post_createdAt {
-    width: 50%;
-    margin: 10px 0px;
-}
-
-.custom-form-nouvel-article textarea {
-    width: 90%; 
-    margin: 10px 0px;   
-}
 
 #post_title {
-    width: 90%;
-    margin: 10px 0px;
+    width: 100%;
 }
 
 /*FIN STYLE FORMULAIRE NOUVEL ARTICLE*/
 
 /*DEBUT STYLE FORMULAIRE NOUVEAU COMMENTAIRE*/
-.form-nouveau-commentaire {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
 
-#comment_content {
-    display: flex;
-    width: 90%;
+#comment_content {   
+    width: 20rem;
     height: 100px;
-    background-color: white;
-
+    padding: 10px;
+    margin: 0px 10px;
 }
 
 /*FIN STYLE FORMULAIRE NOUVEAU COMMENTIARE*/
@@ -214,4 +209,9 @@ main {
 
 .paragraphes-profil {
     color: #CC5500;
+}
+
+.logo-accueil {
+    width: 70px;
+    height:auto;
 }

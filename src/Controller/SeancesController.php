@@ -18,9 +18,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SeancesController extends AbstractController
 {
     #[Route('/seances', name: 'app_seances', methods: ['GET', 'POST'])]
-    public function index(Request $request, EntityManagerInterface $entityManager, ReservationDieteticienRepository $reservationDieteticienRepository, ReservationCoachRepository $reservationCoachRepository): Response
-    
+    public function index(Request $request, EntityManagerInterface $entityManager, 
+    ReservationDieteticienRepository $reservationDieteticienRepository, 
+    ReservationCoachRepository $reservationCoachRepository): Response
     {
+        if(!$this->isGranted('ROLE_USER')){
+            return $this->redirectToRoute('app_login');
+        }
+
         $date = new DateTimeImmutable();
         
         $reservationDieteticien = new ReservationDieteticien();
@@ -40,6 +45,9 @@ class SeancesController extends AbstractController
             $reservationCoach->setTitle('reservation coach');
             $entityManager->persist($reservationCoach);
             $entityManager->flush();
+
+            $this->addFlash('success', 
+            'Votre réservation a été prise en compte, elle est dans votre espace profil');
         }
 
         $coachReservations = $reservationCoachRepository->findAll();
@@ -60,6 +68,9 @@ class SeancesController extends AbstractController
             $reservationDieteticien->setDateFin($date);
             $entityManager->persist($reservationDieteticien);
             $entityManager->flush();
+
+            $this->addFlash('success', 'Votre réservation a été prise en compte, elle est dans votre espace profil');
+
         }
 
         $dieteticienReservations = $reservationDieteticienRepository->findAll();

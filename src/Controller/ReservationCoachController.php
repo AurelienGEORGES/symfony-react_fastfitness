@@ -69,7 +69,14 @@ class ReservationCoachController extends AbstractController
     #[Route('/calendar', name: 'app_reservation_coach_calendar', methods: ['GET'])]
     public function calendar(): Response
     {
-        return $this->render('reservation_coach/calendar.html.twig');
+        /**
+         * @var App\Entity\User $user
+         */
+        $user = $this->getUser();
+
+        return $this->render('reservation_coach/calendar.html.twig', [
+            'user' => $user
+        ]);
     }
 
     #[Route('/{id}', name: 'app_reservation_coach_delete', methods: ['POST'])]

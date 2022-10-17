@@ -59,25 +59,32 @@
 								<li class="nav-item">
 									<a class="nav-link active" aria-current="page" href="{{ path('app_contact') }}">Contact</a>
 								</li>
+
 								{% if is_granted('ROLE_USER') %}
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
+									<a class="nav-link active" aria-current="page"
+									href="{{ path('app_logout') }}">Déconnexion</a>
 								</li>
 								{% else %}
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
+									<a class="nav-link active" aria-current="page" 
+									href="{{ path('app_login') }}">Connexion</a>
 								</li>
 								{% endif %}
 								{% if not app.user %}
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="{{ path('app_register') }}">S'inscrire</a>
+									<a class="nav-link active" aria-current="page" 
+									href="{{ path('app_register') }}">S'inscrire</a>
 								</li>
 								{% endif %}
+
 								{% if is_granted('ROLE_USER') %}
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="{{ path('app_user') }}">Profil</a>
+									<a class="nav-link active" aria-current="page" 
+									href="{{ path('app_reservation_coach_calendar') }}">Profil</a>
 								</li>
 								{% endif %}
+
 							</ul>
 						</div>
 					</div>

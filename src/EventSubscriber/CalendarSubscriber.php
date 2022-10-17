@@ -9,8 +9,9 @@ use App\Repository\ReservationCoachRepository;
 use App\Repository\ReservationDieteticienRepository;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class CalendarSubscriber implements EventSubscriberInterface
+class CalendarSubscriber extends AbstractController implements EventSubscriberInterface
 {
     private $reservationCoachRepository;
     private $reservationDieteticienRepository;
@@ -19,7 +20,7 @@ class CalendarSubscriber implements EventSubscriberInterface
     public function __construct(
         ReservationCoachRepository $reservationCoachRepository,
         ReservationDieteticienRepository $reservationDieteticienRepository,
-        UrlGeneratorInterface $router
+        UrlGeneratorInterface $router,
     ) {
         $this->reservationCoachRepository = $reservationCoachRepository;
         $this->reservationDieteticienRepository = $reservationDieteticienRepository;
@@ -51,14 +52,23 @@ class CalendarSubscriber implements EventSubscriberInterface
         //     ->getResult()
         // ;
 
-        $bookings = $this->reservationCoachRepository->findAll();
+        /**
+         * @var App\Entity\User $user
+         */
+        $user = $this->getUser();
+
+        $id = $user->getId();
+
+        $bookings = $this->reservationCoachRepository->findByUserField($id);
+
+        //$bookings = $this->reservationCoachRepository->findAll();
 
         foreach ($bookings as $booking) {
-            // this create the events with your data (here booking data) to fill calendar
+            
             $bookingEvent = new Event(
-                'Coaching sportif',
+                'Coaching',
                 $booking->getDateDebut(),    
-                $booking->getDateFin() // If the end date is null or not defined, a all day event is created.
+                $booking->getDateFin() 
             );
 
             /*
@@ -80,16 +90,18 @@ class CalendarSubscriber implements EventSubscriberInterface
             //     ])
             // );
 
-            // finally, add the event to the CalendarEvent to fill the calendar
+            
             $calendar->addEvent($bookingEvent);
         }
 
-        $bookings = $this->reservationDieteticienRepository->findAll();
+        $bookings = $this->reservationDieteticienRepository->findByUserField($id);
+
+        //$bookings = $this->reservationDieteticienRepository->findAll();
         
         foreach ($bookings as $booking) {
             // this create the events with your data (here booking data) to fill calendar
             $bookingEvent = new Event(
-                'Coaching diététicien',
+                'Diététique',
                 $booking->getDateDebut(),    
                 $booking->getDateFin() // If the end date is null or not defined, a all day event is created.
             );
@@ -102,8 +114,8 @@ class CalendarSubscriber implements EventSubscriberInterface
              */
 
             $bookingEvent->setOptions([
-                'backgroundColor' => 'blue',
-                'borderColor' => 'blue',
+                'backgroundColor' => 'yellow',
+                'borderColor' => 'yellow',
             ]);
 
             // $bookingEvent->addOption(

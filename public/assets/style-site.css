@@ -24,6 +24,7 @@ main {
     background-color: #2fc134 !important;
     color: black !important;
     font-weight: 700 !important;
+    font-size: x-large !important;
 }
 .btn-creation-article {
     background-color: #CC5500 !important;
@@ -147,11 +148,14 @@ main {
 
 /*DEBUT STYLE FORMULAIRE NOUVEAU COMMENTAIRE*/
 
-#comment_content {   
-    width: 20rem;
-    height: 100px;
-    padding: 10px;
-    margin: 0px 10px;
+#comment_content {
+    width: 90vw;
+}
+
+@media (min-width:992px) {
+    #comment_content {
+            width: 50vw !important;
+    }
 }
 
 /*FIN STYLE FORMULAIRE NOUVEAU COMMENTIARE*/
@@ -215,3 +219,163 @@ main {
     width: 70px;
     height:auto;
 }
+
+/* DEBUT STYLE DU CALENDRIER */
+
+.calendar-style span {
+    color: white;
+}
+
+.fc-content span {
+    color: black !important;
+}
+.fc-title span {
+    color: black !important;
+}
+
+.fc-title {
+    color: black !important;
+}
+
+.calendar-style h2 {
+    color: white;
+    margin: 1rem;
+}
+
+.calendar-style .fc-today {
+    background-color: grey !important;
+}
+
+.fc-list-heading-alt {
+    color: black !important;
+}
+
+.fc-list-heading-main {
+    color: black !important;
+}
+
+.fc-button-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width:700px)
+{
+    .fc-toolbar { 
+    flex-direction: column;     
+    }
+}
+
+.fc-today-button {
+    margin: 0.5rem 0rem 0rem 0rem !important;
+}
+
+.fc-next-button {
+    margin: 0rem 0rem 0rem 0.5rem !important;
+}
+
+.fc-timeGridWeek-button {
+    margin: 0rem 0.5rem 0rem 0.5rem !important;
+}
+
+.fc-listWeek-button {
+    margin: 0.5rem 0rem 0rem 0rem !important;
+}
+
+.fc-list-item-time {
+    color: yellow !important;
+}
+
+.fc-list-item-title {
+    color: yellow !important;
+}
+
+/* DEBUT STYLE DU DATEPICKER DE RESERVATION */
+
+.xdsoft_time {
+    color: green !important;
+}
+
+.xdsoft_disabled {
+    color: red !important;
+}
+
+.xdsoft_current {
+    background: grey !important;
+}
+
+.d-flex .xdsoft_datetimepicker.xdsoft_dark .xdsoft_calendar td:hover, .d-flex .xdsoft_datetimepicker.xdsoft_dark .xdsoft_timepicker .xdsoft_time_box>div>div:hover {
+    background-color: #CC5500 !important;
+}
+
+@media (min-width:700px)
+{
+    .xdsoft_datetimepicker {
+        width: 600px !important;
+        height: 420px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+
+    td, .xdsoft_datetimepicker .xdsoft_calendar th {
+        width: 70px !important;
+        height: 50px !important;
+    }
+    .xdsoft_time {
+        width: 70px !important;
+        height: 50px !important;
+    }   
+
+    .xdsoft_timepicker {
+        height: 400px !important;
+        width: 80px !important;
+    } 
+    .xdsoft_calendar {
+        width: 450px !important;
+        height: 400px !important;
+    }
+    
+    .xdsoft_time_box {
+        height: 300px !important;
+    }
+    div, td, th {
+        font-size: 20px !important;
+    }
+}
+
+.boxed-dark {
+    box-shadow: 0 5px 15px -5px rgb(255 255 255 / 51%);
+    background: #000;
+    border-bottom: 1px solid #444!important;
+    border-left: 1px solid #333!important;
+    border-right: 1px solid #333!important;
+    border-top: 1px solid #333!important;
+    color: #ccc;
+    border-radius: 0!important;
+}
+
+.boxed-dark .card-body {
+    background: #000;
+    color: #ccc;
+}
+
+.fc-slats span {
+    display: flex;
+    justify-content: flex-start;
+    width: 70px !important;
+}
+
+.fc-axis .fc-widget-header td {
+    width: 70px !important;
+}
+
+.media-largeur-accueil {
+    width: 100%;
+}
+
+@media (min-width:992px) {
+    .media-largeur-accueil {
+            width: 50% !important;
+    }
+}
+

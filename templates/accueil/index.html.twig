@@ -4,14 +4,23 @@
 {% endblock %}
 
 {% block content %}
-	<main
-		class="container container-md">
+{% for message in app.flashes('success') %}
+		<div class="d-flex justify-content-center">
+			<div class="alert alert-success w-50 my-3">
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermé"></button>
+				{{ message }}
+			</div>
+		</div>
+	{% endfor %}
+	<div
+		class="container media-largeur-accueil">
 		{# DEBUT DE LA PREMIERE SECTION #}
 		<section>
 
 			{# TITRE D'ACCUEIL #}
-			<div class="d-flex justify-content-center my-5">
-				<h1 class="titlesBlocsAccueil fs-1 text-center">Bienvenue sur Fast Fitness</h1>
+			<div class="my-5">
+				<h1 class="titlesBlocsAccueil fs-1 text-center">
+					Bienvenue sur Fast Fitness</h1>
 			</div>
 
 			{# SLIDER 1 D'ACCUEIL #}
@@ -54,40 +63,43 @@
 
 		<section>
 
+			{# TITRE ACCUEIL 2 #}
+			<div class="my-5">
+				<h2 class="titlesBlocsAccueil fs-1 text-center">Fast Fitness propose un accompagnement de qualité</h2>
+			</div>
+
 			{# SLIDER 2 D'ACCUEIL #}
 			<div class="d-flex justify-content-center my-3">
-				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<div class="d-flex justify-content-center w-100">
+					<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+						<div class="carousel-indicators">
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						</div>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="{{ asset('assets/images/image-1-slider-2.png') }}" class="d-block w-100" alt="...">
+							</div>
+							<div class="carousel-item">
+								<img src="{{ asset('assets/images/image-2-slider-2.png') }}" class="d-block w-100" alt="...">
+							</div>
+							<div class="carousel-item">
+								<img src="{{ asset('assets/images/slider-2-image-4.png') }}" class="d-block w-100" alt="...">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
 					</div>
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="{{ asset('assets/images/img16.jpg') }}" class="d-block images-slider-partie-2" alt="...">
-						</div>
-						<div class="carousel-item">
-							<img src="{{ asset('assets/images/img17.jpg') }}" class="d-block images-slider-partie-2" alt="...">
-						</div>
-						<div class="carousel-item">
-							<img src="{{ asset('assets/images/img18.jpg') }}" class="d-block images-slider-partie-2" alt="...">
-						</div>
-					</div>
-					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
-					</button>
-					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
-					</button>
 				</div>
 			</div>
 
-			{# TITRE ACCUEIL 2 #}
-			<div class="my-4">
-				<h2 class="titlesBlocsAccueil fs-2 text-center">FastFitness vous propose un accompagnement de qualité</h2>
-			</div>
 
 			{# TEXTE ACCUEIL 2 #}
 			<div class="my-4">
@@ -99,11 +111,11 @@
 		<section>
 
 			{# IMAGE AU-DESSUS DU BOUTON #}
-			<div class="d-flex justify-content-center my-5">
-				<div class="">
-					<img src="{{ asset('assets/images/img20.webp') }}" alt="image de fast fitness" class="image-coach-bouton">
+			
+				<div>
+					<img src="{{ asset('assets/images/image-bouton-redimensionnee.png') }}" alt="image de fast fitness" class="d-block w-100">
 				</div>
-			</div>
+			
 
 			{# BOUTON SEANCES #}
 			<div class="d-flex justify-content-center my-5">
@@ -122,7 +134,7 @@
 					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
 				</div>
 				<div class="carousel-inner">
-					
+
 					<div class="carousel-item active">
 						<div class="d-flex justify-content-center">
 							<img src="{{ asset('assets/images/img11.jpg') }}" class="d-block images-slider-partie-4" alt="...">
@@ -170,8 +182,8 @@
 
 			{# TITRE ACCUEIL 4 #}
 
-			<div class="my-4">
-				<h3 class="titlesBlocsAccueil fs-2 text-center">Qui sommes nous?</h3>
+			<div class="my-5">
+				<h3 class="titlesBlocsAccueil fs-1 text-center">Qui sommes nous?</h3>
 			</div>
 
 			{# TEXTE ACCUEIL 4 #}
@@ -179,6 +191,7 @@
 			<div class="my-4">
 				<p class="text-white fs-5 text-center">Nous sommes deux professionnels experimentés dans la nutrition sportive et le coaching de sportifs de haut niveaux. Nous avons également élaboré des programmes pour des acteurs et des mannequins. Si vous voulez avoir des conseils de professionnels vous pouvez réserver en ligne. Les résultats que vous allez obtenir vont booster votre carrière. Les professionnels qe nous entrainons font des progrès considérables en suivant nos conseils.</p>
 			</div>
+
 			{# SLIDER ACCUEIL 4 #}
 			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
 				<div class="carousel-inner">
@@ -186,6 +199,7 @@
 						<div class="d-flex justify-content-center">
 							<img src="{{ asset('assets/images/img13.jpg') }}" class="d-block images-slider-partie-4" alt="...">
 						</div>
+
 					</div>
 					<div class="carousel-item">
 						<div class="d-flex justify-content-center">
@@ -211,12 +225,12 @@
 			{# CITATIONS 4 #}
 
 			<div class="my-4">
-				<p class="text-white fs-5 text-center">"Bonjour je m'appelle Marc Fret,<br/>j'espère que tu vas franchir le cap pour améliorer tes performances. Choisir mes programmes c'est évoluer en terme de conception d'entrainement sur mesure. Si tu es déterminé et que tu souhaite aller vite viens me rencontrer. tes progrès seront rapides et efficaces. J'ai déjà entrainé des athlètes de hauts niveaux, qui ont remporté des compétitions internationnales. Ton programme sera rigoureux mais tes résultats seront à la hauteur de tes attentes."</p>
+				<p class="text-white fs-5 text-center">"Bonjour je m'appelle Marc Fret,<br/>j'espère que tu vas franchir le cap pour améliorer tes performances. Choisir mes programmes c'est évoluer en terme de conception d'entrainement sur mesure. Si tu es déterminé et que tu souhaites aller vite viens me rencontrer. tes progrès seront rapides et efficaces. J'ai déjà entrainé des athlètes de hauts niveaux, qui ont remporté des compétitions internationnales. Ton programme sera rigoureux mais tes résultats seront à la hauteur de tes attentes."</p>
 			</div>
 
 			<div class="my-4">
-				<br/><p class="text-white fs-5 text-center">"Bonjour je m'appelle Julien Serne,<br/>je suis diététicien sprotif et j'accompagne dans la prise de poid musculaire ou la période de sèche. Je suis régulièrement consulté par des acteurs également. Ils viennent me voir pour obtenir ou stabiliser un poid idéal. La nutrition est fondamentale et la nutrition sportive permet d'obtenir des gains rapidement. Pourquoi ne pas en profiter? Viens me rencontrer à Fast Fitness et profite de conseils avisés qui te permettront d'atteidre tes objectifs."</p>
+				<br/><p class="text-white fs-5 text-center">"Bonjour je m'appelle Julien Serne,<br/>je suis diététicien sprotif et j'accompagne dans la prise de poid musculaire ou la période de sèche. Je suis régulièrement consulté par des acteurs également. Ils viennent me voir pour obtenir ou stabiliser un poid idéal. La nutrition est fondamentale et la nutrition sportive permet d'obtenir des gains rapidement. Pourquoi ne pas en profiter? Viens me rencontrer à Fast Fitness et profites de conseils avisés qui te permettront d'atteidre tes objectifs."</p>
 			</div>
 		</section>
-	</main>
+	</div>
 {% endblock %}

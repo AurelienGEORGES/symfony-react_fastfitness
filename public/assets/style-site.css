@@ -183,13 +183,6 @@ main {
 
 /*FIN STYLE DES IMAGES DES ARTICLES*/
 
-/*DEBUT STYLE DES IMAGES*/
-@media (min-width:600px) {
-
-    .images-slider-partie-4 { 
-    }
-
-}
 
 .images-slider-partie-4 {
     width: auto;
